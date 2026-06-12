@@ -9,6 +9,10 @@ public enum LLMProviderType
     Anthropic,
     DeepSeek,
     Qwen,
+    Gemini,
+    Kimi,
+    GLM,
+    MiniMax,
     Custom
 }
 
@@ -30,6 +34,10 @@ public class LLMProviderConfig
         LLMProviderType.Anthropic => "Anthropic (Claude)",
         LLMProviderType.DeepSeek => "DeepSeek",
         LLMProviderType.Qwen => "通义千问",
+        LLMProviderType.Gemini => "Google Gemini",
+        LLMProviderType.Kimi => "Kimi (Moonshot)",
+        LLMProviderType.GLM => "智谱 GLM",
+        LLMProviderType.MiniMax => "MiniMax",
         LLMProviderType.Custom => "自定义 (OpenAI 兼容)",
         _ => provider.ToString()
     };
@@ -40,6 +48,10 @@ public class LLMProviderConfig
         LLMProviderType.Anthropic => "https://api.anthropic.com",
         LLMProviderType.DeepSeek => "https://api.deepseek.com/v1",
         LLMProviderType.Qwen => "https://dashscope.aliyuncs.com/compatible-mode/v1",
+        LLMProviderType.Gemini => "https://generativelanguage.googleapis.com/v1beta/openai",
+        LLMProviderType.Kimi => "https://api.moonshot.cn/v1",
+        LLMProviderType.GLM => "https://open.bigmodel.cn/api/paas/v4",
+        LLMProviderType.MiniMax => "https://api.minimax.chat/v1",
         LLMProviderType.Custom => "",
         _ => ""
     };
@@ -50,7 +62,20 @@ public class LLMProviderConfig
         LLMProviderType.Anthropic => "claude-sonnet-4-20250514",
         LLMProviderType.DeepSeek => "deepseek-chat",
         LLMProviderType.Qwen => "qwen-plus",
+        LLMProviderType.Gemini => "gemini-2.5-flash",
+        LLMProviderType.Kimi => "moonshot-v1-32k",
+        LLMProviderType.GLM => "glm-4-flash",
+        LLMProviderType.MiniMax => "MiniMax-Text-01",
         LLMProviderType.Custom => "",
         _ => ""
+    };
+
+    /// <summary>
+    /// Whether this provider uses the OpenAI-compatible chat completions API.
+    /// </summary>
+    public static bool IsOpenAICompatible(LLMProviderType provider) => provider switch
+    {
+        LLMProviderType.Anthropic => false,
+        _ => true
     };
 }

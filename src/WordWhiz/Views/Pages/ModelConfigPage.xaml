@@ -18,6 +18,10 @@
                             <ComboBoxItem Content="Anthropic (Claude)" Tag="Anthropic"/>
                             <ComboBoxItem Content="DeepSeek" Tag="DeepSeek"/>
                             <ComboBoxItem Content="通义千问" Tag="Qwen"/>
+                            <ComboBoxItem Content="Google Gemini" Tag="Gemini"/>
+                            <ComboBoxItem Content="Kimi (Moonshot)" Tag="Kimi"/>
+                            <ComboBoxItem Content="智谱 GLM" Tag="GLM"/>
+                            <ComboBoxItem Content="MiniMax" Tag="MiniMax"/>
                             <ComboBoxItem Content="自定义 (OpenAI 兼容)" Tag="Custom"/>
                         </ComboBox>
                     </StackPanel>

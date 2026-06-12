@@ -26,9 +26,13 @@ public class LLMProviderFactory
         return config.Provider switch
         {
             LLMProviderType.OpenAI => new OpenAIProvider(config.ApiKey, baseUrl, model),
-            LLMProviderType.Anthropic => new AnthropicProvider(config.ApiKey, model),
-            LLMProviderType.DeepSeek => new DeepSeekProvider(config.ApiKey, model),
-            LLMProviderType.Qwen => new QwenProvider(config.ApiKey, model),
+            LLMProviderType.Anthropic => new AnthropicProvider(config.ApiKey, model, baseUrl),
+            LLMProviderType.DeepSeek => new DeepSeekProvider(config.ApiKey, model, baseUrl),
+            LLMProviderType.Qwen => new QwenProvider(config.ApiKey, model, baseUrl),
+            LLMProviderType.Gemini => new GeminiProvider(config.ApiKey, model, baseUrl),
+            LLMProviderType.Kimi => new KimiProvider(config.ApiKey, model, baseUrl),
+            LLMProviderType.GLM => new GLMProvider(config.ApiKey, model, baseUrl),
+            LLMProviderType.MiniMax => new MiniMaxProvider(config.ApiKey, model, baseUrl),
             LLMProviderType.Custom => !string.IsNullOrWhiteSpace(baseUrl)
                 ? new OpenAIProvider(config.ApiKey, baseUrl, model)
                 : null,

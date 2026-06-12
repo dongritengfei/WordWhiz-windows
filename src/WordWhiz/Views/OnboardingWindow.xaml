@@ -47,6 +47,10 @@
                         <ComboBoxItem Content="Anthropic (Claude)"/>
                         <ComboBoxItem Content="DeepSeek"/>
                         <ComboBoxItem Content="通义千问"/>
+                        <ComboBoxItem Content="Google Gemini"/>
+                        <ComboBoxItem Content="Kimi (Moonshot)"/>
+                        <ComboBoxItem Content="智谱 GLM"/>
+                        <ComboBoxItem Content="MiniMax"/>
                         <ComboBoxItem Content="自定义 (OpenAI 兼容)"/>
                     </ComboBox>
                 </StackPanel>

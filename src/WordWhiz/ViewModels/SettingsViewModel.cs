@@ -58,6 +58,10 @@ public partial class SettingsViewModel : ObservableObject
         LLMProviderType.Anthropic,
         LLMProviderType.DeepSeek,
         LLMProviderType.Qwen,
+        LLMProviderType.Gemini,
+        LLMProviderType.Kimi,
+        LLMProviderType.GLM,
+        LLMProviderType.MiniMax,
         LLMProviderType.Custom
     ];
 
@@ -127,14 +131,9 @@ public partial class SettingsViewModel : ObservableObject
 
     partial void OnSelectedProviderChanged(LLMProviderType value)
     {
-        if (string.IsNullOrEmpty(BaseUrl))
-        {
-            BaseUrl = LLMProviderConfig.GetDefaultBaseURL(value);
-        }
-        if (string.IsNullOrEmpty(ModelName))
-        {
-            ModelName = LLMProviderConfig.GetDefaultModel(value);
-        }
+        // Always pre-fill default URL and model when switching providers
+        BaseUrl = LLMProviderConfig.GetDefaultBaseURL(value);
+        ModelName = LLMProviderConfig.GetDefaultModel(value);
     }
 
     // ── Test Connection ──────────────────────────────────────

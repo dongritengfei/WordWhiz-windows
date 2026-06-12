@@ -15,7 +15,7 @@
 
 - **全局快捷键触发** - 默认 `Ctrl+Shift+Z` 一键唤出优化面板，无需切换应用
 - **实时流式输出** - LLM 响应逐字呈现，无需等待完整响应
-- **多 LLM 服务商支持** - 支持 OpenAI、Anthropic Claude、DeepSeek、通义千问及自定义 OpenAI 兼容接口（推荐通过阿里云百炼平台使用 `kimi-k2.6`，速度最快）
+- **多 LLM 服务商支持** - 支持 OpenAI、Anthropic Claude、DeepSeek、通义千问、Google Gemini、Kimi、智谱 GLM、MiniMax 及自定义 OpenAI 兼容接口（推荐通过阿里云百炼平台使用`kimi-k2.6`，速度最快）
 - **自定义指令** - 内置 6 种默认指令（润色、翻译、摘要、扩写、正式化、口语化），支持自定义 Prompt
 - **历史记录** - 自动保存优化记录，支持搜索和复用
 - **浮动面板** - 660×660 置顶无边框面板，支持多种锚定位置（右侧/左侧/居中）
@@ -144,6 +144,10 @@ WordWhiz-windows/
 - [Anthropic Claude](https://www.anthropic.com/)
 - [DeepSeek](https://www.deepseek.com/)
 - [通义千问 (Alibaba)](https://tongyi.aliyun.com/)
+- [Google Gemini](https://ai.google.dev/)
+- [Kimi / Moonshot AI](https://moonshot.cn/)
+- [智谱 GLM](https://open.bigmodel.cn/)
+- [MiniMax](https://www.minimaxi.com/)
 - 自定义 OpenAI 兼容接口
 
 ## 与 macOS 版的差异

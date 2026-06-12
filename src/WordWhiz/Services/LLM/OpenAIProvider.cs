@@ -133,8 +133,9 @@ public class DeepSeekProvider : OpenAIProvider
 {
     public override string ProviderName => "DeepSeek";
 
-    public DeepSeekProvider(string apiKey, string modelName = "deepseek-chat")
-        : base(apiKey, "https://api.deepseek.com/v1", modelName) { }
+    public DeepSeekProvider(string apiKey, string modelName = "deepseek-chat",
+        string? baseUrl = null)
+        : base(apiKey, baseUrl ?? "https://api.deepseek.com/v1", modelName) { }
 }
 
 /// <summary>
@@ -144,6 +145,55 @@ public class QwenProvider : OpenAIProvider
 {
     public override string ProviderName => "通义千问";
 
-    public QwenProvider(string apiKey, string modelName = "qwen-plus")
-        : base(apiKey, "https://dashscope.aliyuncs.com/compatible-mode/v1", modelName) { }
+    public QwenProvider(string apiKey, string modelName = "qwen-plus",
+        string? baseUrl = null)
+        : base(apiKey, baseUrl ?? "https://dashscope.aliyuncs.com/compatible-mode/v1", modelName) { }
+}
+
+/// <summary>
+/// Google Gemini provider — uses OpenAI-compatible endpoint.
+/// </summary>
+public class GeminiProvider : OpenAIProvider
+{
+    public override string ProviderName => "Google Gemini";
+
+    public GeminiProvider(string apiKey, string modelName = "gemini-2.5-flash",
+        string? baseUrl = null)
+        : base(apiKey, baseUrl ?? "https://generativelanguage.googleapis.com/v1beta/openai", modelName) { }
+}
+
+/// <summary>
+/// Kimi (Moonshot AI) provider — OpenAI-compatible.
+/// </summary>
+public class KimiProvider : OpenAIProvider
+{
+    public override string ProviderName => "Kimi";
+
+    public KimiProvider(string apiKey, string modelName = "moonshot-v1-32k",
+        string? baseUrl = null)
+        : base(apiKey, baseUrl ?? "https://api.moonshot.cn/v1", modelName) { }
+}
+
+/// <summary>
+/// 智谱 GLM provider — OpenAI-compatible.
+/// </summary>
+public class GLMProvider : OpenAIProvider
+{
+    public override string ProviderName => "智谱 GLM";
+
+    public GLMProvider(string apiKey, string modelName = "glm-4-flash",
+        string? baseUrl = null)
+        : base(apiKey, baseUrl ?? "https://open.bigmodel.cn/api/paas/v4", modelName) { }
+}
+
+/// <summary>
+/// MiniMax provider — OpenAI-compatible.
+/// </summary>
+public class MiniMaxProvider : OpenAIProvider
+{
+    public override string ProviderName => "MiniMax";
+
+    public MiniMaxProvider(string apiKey, string modelName = "MiniMax-Text-01",
+        string? baseUrl = null)
+        : base(apiKey, baseUrl ?? "https://api.minimax.chat/v1", modelName) { }
 }

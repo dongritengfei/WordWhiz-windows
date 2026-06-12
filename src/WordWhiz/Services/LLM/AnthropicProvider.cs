@@ -18,11 +18,12 @@ public class AnthropicProvider : ILLMProvider
 
     public string ProviderName => "Anthropic";
 
-    public AnthropicProvider(string apiKey, string modelName = "claude-sonnet-4-20250514")
+    public AnthropicProvider(string apiKey, string modelName = "claude-sonnet-4-20250514",
+        string? baseUrl = null)
     {
         _apiKey = apiKey;
         _modelName = modelName;
-        _baseUrl = new Uri("https://api.anthropic.com/");
+        _baseUrl = new Uri((baseUrl ?? "https://api.anthropic.com").TrimEnd('/') + "/");
 
         _httpClient = new HttpClient
         {

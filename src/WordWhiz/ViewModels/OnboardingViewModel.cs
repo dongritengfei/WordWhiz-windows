@@ -31,6 +31,10 @@ public partial class OnboardingViewModel : ObservableObject
         LLMProviderType.Anthropic,
         LLMProviderType.DeepSeek,
         LLMProviderType.Qwen,
+        LLMProviderType.Gemini,
+        LLMProviderType.Kimi,
+        LLMProviderType.GLM,
+        LLMProviderType.MiniMax,
         LLMProviderType.Custom
     ];
 
