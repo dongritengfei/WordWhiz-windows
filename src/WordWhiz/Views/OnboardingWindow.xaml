@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window
+    x:Class="WordWhiz.Views.OnboardingWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Grid Background="{StaticResource BgPrimaryBrush}" Padding="40">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Step Content -->
+        <Grid Grid.Row="0" VerticalAlignment="Center">
+            <!-- Step 1: Welcome -->
+            <StackPanel x:Name="Step1" Spacing="16" HorizontalAlignment="Center" Visibility="Visible">
+                <Border Background="{StaticResource AccentBrush}" CornerRadius="16" Width="80" Height="80"
+                        HorizontalAlignment="Center">
+                    <TextBlock Text="Ww" Foreground="White" FontWeight="Bold" FontSize="32"
+                               HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Border>
+                <TextBlock Text="欢迎使用 WordWhiz" FontSize="28" FontWeight="Bold"
+                           Foreground="{StaticResource TextPrimaryBrush}" HorizontalAlignment="Center"/>
+                <TextBlock Text="一款智能文案优化工具&#x0a;让 AI 帮你润色、翻译、改写文案"
+                           Foreground="{StaticResource TextSecondaryBrush}" FontSize="15"
+                           TextAlignment="Center" HorizontalAlignment="Center"/>
+                <StackPanel Spacing="8" HorizontalAlignment="Center" Margin="0,16,0,0">
+                    <TextBlock Text="使用方法：" Foreground="{StaticResource TextMutedBrush}" FontSize="13"/>
+                    <TextBlock Text="1. 在任意应用中复制文本" Foreground="{StaticResource TextSecondaryBrush}" FontSize="13"/>
+                    <TextBlock Text="2. 按下 Ctrl+Shift+Z 唤出优化面板" Foreground="{StaticResource TextSecondaryBrush}" FontSize="13"/>
+                    <TextBlock Text="3. 查看 AI 优化结果并复制使用" Foreground="{StaticResource TextSecondaryBrush}" FontSize="13"/>
+                </StackPanel>
+            </StackPanel>
+
+            <!-- Step 2: API Configuration -->
+            <StackPanel x:Name="Step2" Spacing="16" MaxWidth="400" Visibility="Collapsed">
+                <TextBlock Text="🤖 配置 AI 模型" FontSize="24" FontWeight="Bold"
+                           Foreground="{StaticResource TextPrimaryBrush}" HorizontalAlignment="Center"/>
+                <TextBlock Text="选择一个 LLM 服务商并填写 API Key"
+                           Foreground="{StaticResource TextSecondaryBrush}" FontSize="13"
+                           HorizontalAlignment="Center"/>
+
+                <StackPanel Spacing="4">
+                    <TextBlock Text="服务商" Foreground="{StaticResource TextSecondaryBrush}" FontSize="12"/>
+                    <ComboBox x:Name="ProviderCombo" Width="300">
+                        <ComboBoxItem Content="OpenAI (GPT-4o)"/>
+                        <ComboBoxItem Content="Anthropic (Claude)"/>
+                        <ComboBoxItem Content="DeepSeek"/>
+                        <ComboBoxItem Content="通义千问"/>
+                        <ComboBoxItem Content="自定义 (OpenAI 兼容)"/>
+                    </ComboBox>
+                </StackPanel>
+
+                <StackPanel Spacing="4">
+                    <TextBlock Text="API Key" Foreground="{StaticResource TextSecondaryBrush}" FontSize="12"/>
+                    <PasswordBox x:Name="ApiKeyBox" Width="300" PlaceholderText="输入你的 API Key"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Spacing="12">
+                    <Button Content="测试连接" Click="TestConnection_Click"
+                            Background="{StaticResource AccentBrush}" Foreground="White"
+                            CornerRadius="6" Padding="16,8"/>
+                    <TextBlock x:Name="TestResult" Foreground="{StaticResource TextMutedBrush}"
+                               FontSize="12" VerticalAlignment="Center"/>
+                </StackPanel>
+            </StackPanel>
+
+            <!-- Step 3: Ready -->
+            <StackPanel x:Name="Step3" Spacing="16" HorizontalAlignment="Center" Visibility="Collapsed">
+                <TextBlock Text="🎉" FontSize="48" HorizontalAlignment="Center"/>
+                <TextBlock Text="准备就绪！" FontSize="28" FontWeight="Bold"
+                           Foreground="{StaticResource TextPrimaryBrush}" HorizontalAlignment="Center"/>
+                <TextBlock Text="WordWhiz 已准备就绪&#x0a;试试复制一段文字，然后按下 Ctrl+Shift+Z"
+                           Foreground="{StaticResource TextSecondaryBrush}" FontSize="15"
+                           TextAlignment="Center" HorizontalAlignment="Center"/>
+
+                <Border Background="{StaticResource BgTertiaryBrush}" CornerRadius="8" Padding="16" Margin="0,16,0,0">
+                    <StackPanel Spacing="8">
+                        <TextBlock Text="快捷键一览" FontWeight="SemiBold"
+                                   Foreground="{StaticResource TextPrimaryBrush}" FontSize="14"/>
+                        <Grid ColumnSpacing="24">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Grid.Row="0" Text="触发优化" Foreground="{StaticResource TextSecondaryBrush}"/>
+                            <TextBlock Grid.Row="0" Grid.Column="1" Text="Ctrl+Shift+Z" FontFamily="Consolas" Foreground="{StaticResource TextPrimaryBrush}"/>
+                            <TextBlock Grid.Row="1" Text="复制结果" Foreground="{StaticResource TextSecondaryBrush}"/>
+                            <TextBlock Grid.Row="1" Grid.Column="1" Text="Ctrl+Shift+C" FontFamily="Consolas" Foreground="{StaticResource TextPrimaryBrush}"/>
+                            <TextBlock Grid.Row="2" Text="重新生成" Foreground="{StaticResource TextSecondaryBrush}"/>
+                            <TextBlock Grid.Row="2" Grid.Column="1" Text="Ctrl+R" FontFamily="Consolas" Foreground="{StaticResource TextPrimaryBrush}"/>
+                        </Grid>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </Grid>
+
+        <!-- Navigation Buttons -->
+        <Grid Grid.Row="1" Margin="0,20,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Button x:Name="BackButton" Grid.Column="1" Content="← 上一步" Padding="16,8"
+                    CornerRadius="6" Margin="0,0,12,0" Click="Back_Click"
+                    Background="{StaticResource BgTertiaryBrush}"
+                    Foreground="{StaticResource TextPrimaryBrush}" Visibility="Collapsed"/>
+
+            <Button x:Name="NextButton" Grid.Column="2" Content="下一步 →" Padding="16,8"
+                    CornerRadius="6" Click="Next_Click"
+                    Background="{StaticResource AccentBrush}" Foreground="White"/>
+        </Grid>
+    </Grid>
+</Window>
